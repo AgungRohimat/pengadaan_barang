@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('dasboard');
+    return view('index');
 });
 
 Auth::routes(
@@ -24,3 +24,25 @@ Auth::routes(
 );
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Hanya Untuk Role Admin
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
+    Route::get('/', function () {
+        return 'halaman admin';
+    });
+
+    Route::get('profile', function () {
+        return 'halaman profile admin';
+    });
+});
+
+//Hanya Untuk Role Pengguna
+Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']], function () {
+    Route::get('/', function () {
+        return 'halaman pengguna';
+    });
+
+    Route::get('profile', function () {
+        return 'halaman profile pengguna';
+    });
+});

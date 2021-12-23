@@ -13,8 +13,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                        <div class="card-body">
+                        @if(session('status'))
+                        <div class="alert alert-successs" role="alert">
+                        {{ session('status')}}
+                        </div>
+                        @endif
+                        @role('admin')
+                        <p>This is visible to user with the admin role. Gets translated to
+                        \Laratrust::hasRole('admin')</p>
+                        @endrole
 
-                    {{ __('You are logged in!') }}
+                        @role('pengguna')
+                        <p>This is visible to user with the pengguna role. Gets translated to
+                            \Laratrust::hasRole('pengguna')</p>
+                        @endrole
+                        {{__('You are logged in!')}}
+
+                        </div>
+
+
                 </div>
             </div>
         </div>
