@@ -244,19 +244,30 @@ return [
 
         ['header' => 'account_settings'],
         [
-            'text' => 'Buku',
-            'url' => 'admin/buku',
-            'icon' => 'fas fa-fw fa-book',
+            'text' => 'Produk',
+            'url' => 'admin/produk',
+            'icon' => 'fas fa-fw fa-list',
+        ],
+
+        [
+            'text' => 'Barang Masuk',
+            'url' => 'admin/barang_masuk',
+            'icon' => ' fas fa-fw fa-clipboard',
         ],
         [
-            'text' => 'Pengarang',
-            'url' => 'admin/pengarang',
-            'icon' => ' fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Menu Lainnya',
+            'text' => 'Barang Keluar',
             'url' => 'admin/barang_keluar',
-            'icon' => ' fas fa-fw fa-list',
+            'icon' => ' fas fa-fw fa-clipboard',
+        ],
+        [
+            'text' => 'Laporan Barang Masuk',
+            'url' => 'admin/laporan',
+            'icon' => ' fas fa-fw fa-book',
+        ],
+        [
+            'text' => 'Laporan Barang Keluar',
+            'url' => 'admin/laporan',
+            'icon' => ' fas fa-fw fa-book',
         ],
 
     ],

@@ -47,12 +47,24 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     });
 // });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-    Route::get('buku', function () {
-        return view('buku.index');
-    })->middleware(['role:admin|pengguna']);
+// Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+//     Route::get('buku', function () {
+//         return view('buku.index');
+//     })->middleware(['role:admin|pengguna']);
 
-    Route::get('pengarang', function () {
-        return view('pengarang.index');
-    })->middleware(['role:admin']);;
+//     Route::get('pengarang', function () {
+//         return view('pengarang.index');
+//     })->middleware(['role:admin']);;
+// });
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    Route::get('produk', function () {
+        return view('produk.index');
+    })->middleware(['role:admin']);
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    Route::get('barangmasuk', function () {
+        return view('barangmasuk.index');
+    })->middleware(['role:admin']);
 });

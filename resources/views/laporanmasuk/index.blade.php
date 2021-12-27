@@ -10,7 +10,7 @@ Dashboard
 
 @section('content')
 
-Halaman Pengarang
+Halaman Laporan Masuk
 
 @stop
 

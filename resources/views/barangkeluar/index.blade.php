@@ -1,6 +1,5 @@
 @extends('adminlte::page')
 
-
 @section('title', 'Dashboard')
 
 @section('content_header')
@@ -11,7 +10,7 @@ Dashboard
 
 @section('content')
 
-Welcome to this beautiful admin panel.
+Halaman Barang Keluar
 
 @stop
 
@@ -22,3 +21,4 @@ Welcome to this beautiful admin panel.
 @section('js')
 
 @stop
+
