@@ -15,6 +15,15 @@ class CreateBarangKeluarsTable extends Migration
     {
         Schema::create('barang_keluars', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_produk')->unsigned();
+            $table->date('tanggal');
+            $table->string('merekhp');
+            $table->string('jenishp');
+            $table->integer('jumlahkeluar');
+            $table->foreign('id_produk')->references('id')
+                ->on('produks')->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

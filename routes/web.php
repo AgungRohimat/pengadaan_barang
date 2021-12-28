@@ -61,10 +61,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('produk', function () {
         return view('produk.index');
     })->middleware(['role:admin']);
-});
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('barangmasuk', function () {
         return view('barangmasuk.index');
     })->middleware(['role:admin']);
+
+    Route::get('barangkeluar', function () {
+        return view('barangkeluar.index');
+    })->middleware(['role:admin']);
+
+    Route::get('laporanmasuk', function () {
+        return view('laporanmasuk.index');
+    })->middleware(['role:admin']);
+
+    Route::get('laporankeluar', function () {
+        return view('laporankeluar.index');
+    })->middleware(['role:admin']);
+
 });

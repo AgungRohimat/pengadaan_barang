@@ -226,23 +226,14 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
+
         [
             'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
 
-        ['header' => 'account_settings'],
         [
             'text' => 'Produk',
             'url' => 'admin/produk',
@@ -251,22 +242,22 @@ return [
 
         [
             'text' => 'Barang Masuk',
-            'url' => 'admin/barang_masuk',
+            'url' => 'admin/barangmasuk',
             'icon' => ' fas fa-fw fa-clipboard',
         ],
         [
             'text' => 'Barang Keluar',
-            'url' => 'admin/barang_keluar',
+            'url' => 'admin/barangkeluar',
             'icon' => ' fas fa-fw fa-clipboard',
         ],
         [
             'text' => 'Laporan Barang Masuk',
-            'url' => 'admin/laporan',
+            'url' => 'admin/laporanmasuk',
             'icon' => ' fas fa-fw fa-book',
         ],
         [
             'text' => 'Laporan Barang Keluar',
-            'url' => 'admin/laporan',
+            'url' => 'admin/laporankeluar',
             'icon' => ' fas fa-fw fa-book',
         ],
 

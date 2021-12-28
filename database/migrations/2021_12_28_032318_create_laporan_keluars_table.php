@@ -15,6 +15,15 @@ class CreateLaporanKeluarsTable extends Migration
     {
         Schema::create('laporan_keluars', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_barang')->unsigned();
+            $table->date('tanggal');
+            $table->string('merekhp');
+            $table->string('jenishp');
+            $table->integer('laporanmasuk');
+            $table->foreign('id_barang')->references('id')
+                ->on('barang_keluars')->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
