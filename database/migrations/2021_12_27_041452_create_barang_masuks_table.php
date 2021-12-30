@@ -15,14 +15,10 @@ class CreateBarangMasuksTable extends Migration
     {
         Schema::create('barang_masuks', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_produk')->unsigned();
             $table->date('tanggal');
             $table->string('merekhp');
             $table->string('jenishp');
             $table->integer('jumlahmasuk');
-            $table->foreign('id_produk')->references('id')
-                ->on('produks')->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,5 +62,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::resource('produk', ProdukController::class)->middleware(['role:admin']);
+    Route::resource('barangmasuk', BarangMasukController::class)->middleware(['role:admin']);
 
 });

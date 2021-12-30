@@ -14,7 +14,8 @@ class BarangMasukController extends Controller
      */
     public function index()
     {
-        //
+        $barangmasuk = BarangMasuk::all();
+        return view('barangmasuk.index', compact('barangmasuk'));
     }
 
     /**
@@ -24,7 +25,8 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        //
+        return view('barangmasuk.create');
+
     }
 
     /**
@@ -35,7 +37,15 @@ class BarangMasukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate(
+            ['merekhp' => 'required',
+            ]);
+
+        $barangmasuk = new BarangMasuk;
+        $barangmasuk->id_produk = $request->id_produk;
+        $barangmasuk->save();
+        return redirect()->route('barangmasuk.index');
+
     }
 
     /**
@@ -46,7 +56,9 @@ class BarangMasukController extends Controller
      */
     public function show(BarangMasuk $barangMasuk)
     {
-        //
+        $barangmasuk = BarangMasuk::findOrFail($id);
+        return view('barangmasuk.show', compact('barangmasuk'));
+
     }
 
     /**
@@ -57,7 +69,9 @@ class BarangMasukController extends Controller
      */
     public function edit(BarangMasuk $barangMasuk)
     {
-        //
+        $barangmasuk = BarangMasuk::findOrFail($id);
+        return view('barangmasuk.edit', compact('barangmasuk'));
+
     }
 
     /**
@@ -69,7 +83,15 @@ class BarangMasukController extends Controller
      */
     public function update(Request $request, BarangMasuk $barangMasuk)
     {
-        //
+        $validated = $request->validate(
+            ['id_produk' => 'required',
+            ]);
+
+        $barangmasuk = BarangMasuk::findOrFail($id);
+        $barangmasuk->id_barangmasuk = $request->id_barangmasuk;
+        $barangmasuk->save();
+        return redirect()->route('barangmasuk.index');
+
     }
 
     /**
@@ -80,6 +102,9 @@ class BarangMasukController extends Controller
      */
     public function destroy(BarangMasuk $barangMasuk)
     {
-        //
+        $barangmasuk = BarangMasuk::findOrFail($id);
+        $barangmasuk->delete();
+        return redirect()->route('barangmasuk.index');
+
     }
 }

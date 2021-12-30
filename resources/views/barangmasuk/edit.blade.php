@@ -17,13 +17,13 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Data Produk</div>
+                <div class="card-header">Data Penulis</div>
                 <div class="card-body">
                     <form action="{{route('produk.update', $produk->id)}}" method="post">
                         @csrf
                         @method ('put')
                         <div class="form-group">
-                            <label for="">Masukkan Nama Merek Hp</label>
+                            <label for="">Masukkan Nama Penulis</label>
                             <input type="text" name="name" value="{{$produk->name}}" class="form-control @error('name') is-invalid @enderror">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -42,3 +42,4 @@
     </div>
 </div>
 @endsection
+

@@ -26,8 +26,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('produk.create');
-
+        //
     }
 
     /**
@@ -38,15 +37,7 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(
-            ['merekhp' => 'required',
-            ]);
-
-        $produk = new Produk;
-        $produk->merekhp = $request->merekhp;
-        $produk->save();
-        return redirect()->route('produk.index');
-
+        //
     }
 
     /**
@@ -55,11 +46,9 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show(Produk $id)
+    public function show(Produk $produk)
     {
-        $produk = Produk::findOrFail($id);
-        return view('produk.show', compact('produk'));
-
+        //
     }
 
     /**
@@ -68,11 +57,9 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produk $id)
+    public function edit(Produk $produk)
     {
-        $produk = Produk::findOrFail($id);
-        return view('produk.edit', compact('produk'));
-
+        //
     }
 
     /**
@@ -84,15 +71,7 @@ class ProdukController extends Controller
      */
     public function update(Request $request, Produk $produk)
     {
-        $validated = $request->validate(
-            ['merekhp' => 'required',
-            ]);
-
-        $produk = Produk::findOrFail($id);
-        $produk->merekhp = $request->merekhp;
-        $produk->save();
-        return redirect()->route('produk.index');
-
+        //
     }
 
     /**
@@ -103,9 +82,6 @@ class ProdukController extends Controller
      */
     public function destroy(Produk $produk)
     {
-        $Produk = Produk::findOrFail($id);
-        $Produk->delete();
-        return redirect()->route('produk.index');
-
+        //
     }
 }

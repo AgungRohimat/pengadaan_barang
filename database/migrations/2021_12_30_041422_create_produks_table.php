@@ -15,11 +15,15 @@ class CreateProduksTable extends Migration
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_barangmasuk')->unsigned();
             $table->string('merekhp');
             $table->string('jenishp');
             $table->integer('stok');
-            $table->timestamps();
+            $table->foreign('id_barangmasuk')->references('id')
+                ->on('barang_masuks')->onUpdate('cascade')
+                ->onDelete('cascade');
 
+            $table->timestamps();
         });
     }
 

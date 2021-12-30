@@ -1,24 +1,61 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
-
-@section('content_header')
-
-Dashboard
-
-@stop
+@section('header')
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0">Data Penulis</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    Data Barang Masuk
+                    <a href="{{route('barangmasuk.create')}}" class="btn btn-outline-primary float-right">Tambah Barang</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Merk Hp</th>
+                                <th>Jenis Hp</th>
+                                <th>Jumlah Masuk</th>
+                                <th>Stok</th>
+                            </tr>
+                            @php
+                            $no = 1;
+                            @endphp
+                            @foreach ($barangmasuk as $data)
+                            <tr>
+                                <td>{{$no++}}</td>
+                                <td>{{$data->merekhp}}</td>
+                                <td>
+                                    <form action="{{route('barangmasuk.destroy' , $data->id)}}" method="POST">
+                                        @method('delete')
+                                        @csrf
+                                        <a href="{{route('barangmasuk.edit', $data->id)}}" class="btn btn-outline-info">Edit</a>
+                                        <a href="{{route('barangmasuk.show' ,$data->id)}}" class="btn btn-outline-warning">Show</a>
+                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('apakah anda yakin menghapus ini?');">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
 
-Halaman Barang Keluar
-
-@stop
-
-@section('css')
-
-@stop
-
-@section('js')
-
-@stop
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 
