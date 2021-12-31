@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\BarangMasukController;
+use App\Http\Controllers\LaporanKeluarController;
+use App\Http\Controllers\LaporanMasukController;
 use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,5 +66,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::resource('produk', ProdukController::class)->middleware(['role:admin']);
     Route::resource('barangmasuk', BarangMasukController::class)->middleware(['role:admin']);
+    Route::resource('barangkeluar', BarangKeluarController::class)->middleware(['role:admin']);
+    Route::resource('laporanmasuk', LaporanMasukController::class)->middleware(['role:admin']);
+    Route::resource('laporankeluar', LaporanKeluarController::class)->middleware(['role:admin']);
 
 });

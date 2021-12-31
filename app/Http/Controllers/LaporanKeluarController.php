@@ -14,7 +14,9 @@ class LaporanKeluarController extends Controller
      */
     public function index()
     {
-        //
+        $laporankeluar = LaporanKeluar::all();
+        return view('laporankeluar.index', compact('laporankeluar'));
+
     }
 
     /**
@@ -24,7 +26,8 @@ class LaporanKeluarController extends Controller
      */
     public function create()
     {
-        //
+        return view('laporankeluar.create');
+
     }
 
     /**
@@ -35,7 +38,14 @@ class LaporanKeluarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate(
+            ['merekhp' => 'required']
+        );
+        $laporankeluar = new LaporanKeluar;
+        $laporankeluar->id = $request->id;
+        $laporankeluar->save();
+        return redirect()->route('laporankeluar.index');
+
     }
 
     /**
@@ -46,7 +56,9 @@ class LaporanKeluarController extends Controller
      */
     public function show(LaporanKeluar $laporanKeluar)
     {
-        //
+        $laporankeluar = LaporanKeluar::findOrFail($id);
+        return view('laporankeluar.show', compact('laporankeluar'));
+
     }
 
     /**
@@ -57,7 +69,9 @@ class LaporanKeluarController extends Controller
      */
     public function edit(LaporanKeluar $laporanKeluar)
     {
-        //
+        $laporankeluar = LaporanKeluar::findOrFail($id);
+        return view('laporankeluar.edit', compact('barangkeluar'));
+
     }
 
     /**
@@ -69,7 +83,14 @@ class LaporanKeluarController extends Controller
      */
     public function update(Request $request, LaporanKeluar $laporanKeluar)
     {
-        //
+        $validated = $request->validate(
+            ['id' => 'required']
+        );
+        $laporankeluar = LaporanKeluar::findOrFail($id);
+        $laporankeluar->$id = $request->id;
+        $barangkeluar->save();
+        return redirect()->route('laporankeluar.index');
+
     }
 
     /**
@@ -80,6 +101,7 @@ class LaporanKeluarController extends Controller
      */
     public function destroy(LaporanKeluar $laporanKeluar)
     {
-        //
+        return redirect()->route('barangkeluar.index');
+
     }
 }

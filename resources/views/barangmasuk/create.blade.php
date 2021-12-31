@@ -30,11 +30,18 @@
                             </span>
                             @enderror
                         </div>
-
-
                         <div class="form-group">
                             <label for="">Jenis Hp</label>
                             <input type="text" name="amount" class="form-control @error('amount') is-invalid @enderror">
+                            @error('amount')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tanggal Masuk</label>
+                            <input type="date" name="amount" class="form-control @error('amount') is-invalid @enderror">
                             @error('amount')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -51,7 +58,6 @@
                             </span>
                             @enderror
                         </div>
-
                         <div class="form-group">
                             <button type="reset" class="btn btn-outline-warning">Reset</button>
                             <button type="submit" class="btn btn-outline-primary">Simpan</button>

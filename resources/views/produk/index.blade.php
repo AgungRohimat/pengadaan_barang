@@ -33,7 +33,7 @@
                                 <th>Merk HP</th>
                                 <th>Jenis Hp</th>
                                 <th>Stok</th>
-                                <th>Aksi</th>
+
                             </tr>
                             @php
                             $no = 1;

@@ -14,7 +14,9 @@ class BarangKeluarController extends Controller
      */
     public function index()
     {
-        //
+        $barangkeluar = BarangKeluar::all();
+        return view('barangkeluar.index', compact('barangkeluar'));
+
     }
 
     /**
@@ -24,7 +26,8 @@ class BarangKeluarController extends Controller
      */
     public function create()
     {
-        //
+        return view('barangkeluar.create');
+
     }
 
     /**
@@ -35,7 +38,15 @@ class BarangKeluarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate(
+            ['merekhp' => 'required',
+            ]);
+
+        $barangmasuk = new BarangKeluar;
+        $barangmasuk->id = $request->id;
+        $barangmasuk->save();
+        return redirect()->route('barangkeluar.index');
+
     }
 
     /**
@@ -44,9 +55,11 @@ class BarangKeluarController extends Controller
      * @param  \App\Models\BarangKeluar  $barangKeluar
      * @return \Illuminate\Http\Response
      */
-    public function show(BarangKeluar $barangKeluar)
+    public function show($id)
     {
-        //
+        $barangkeluar = BarangKeluar::findOrFail($id);
+        return view('barangkeluar.show', compact('barangkeluar'));
+
     }
 
     /**
@@ -57,7 +70,9 @@ class BarangKeluarController extends Controller
      */
     public function edit(BarangKeluar $barangKeluar)
     {
-        //
+        $barangkeluar = BarangKeluar::findOrFail($id);
+        return view('barangkeluar.edit', compact('barangkeluar'));
+
     }
 
     /**
@@ -69,7 +84,15 @@ class BarangKeluarController extends Controller
      */
     public function update(Request $request, BarangKeluar $barangKeluar)
     {
-        //
+        $validated = $request->validate(
+            ['id' => 'required',
+            ]);
+
+        $barangkeluar = BarangKeluar::findOrFail($id);
+        $barangkeluar->id = $request->id;
+        $barangkeluar->save();
+        return redirect()->route('barangkeluar.index');
+
     }
 
     /**
@@ -80,6 +103,9 @@ class BarangKeluarController extends Controller
      */
     public function destroy(BarangKeluar $barangKeluar)
     {
-        //
+        $barangkeluar = BarangKeluar::findOrFail($id);
+        $barangkeluar->delete();
+        return redirect()->route('barangkeluar.index');
+
     }
 }

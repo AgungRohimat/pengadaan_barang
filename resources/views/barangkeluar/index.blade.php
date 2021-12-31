@@ -18,8 +18,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Data Barang Masuk
-                    <a href="{{route('barangmasuk.create')}}" class="btn btn-outline-primary float-right">Tambah Barang</a>
+                    Data Barang Keluar
+                    <a href="{{route('barangkeluar.create')}}" class="btn btn-outline-primary float-right">Tambah Barang</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -28,22 +28,22 @@
                                 <th>Tanggal</th>
                                 <th>Merk Hp</th>
                                 <th>Jenis Hp</th>
-                                <th>Jumlah Masuk</th>
+                                <th>Jumlah Keluar</th>
                                 <th>Stok</th>
                             </tr>
                             @php
                             $no = 1;
                             @endphp
-                            @foreach ($barangmasuk as $data)
+                            @foreach ($barangkeluar as $data)
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data->merekhp}}</td>
                                 <td>
-                                    <form action="{{route('barangmasuk.destroy' , $data->id)}}" method="POST">
+                                    <form action="{{route('barangkeluar.destroy' , $data->id)}}" method="POST">
                                         @method('delete')
                                         @csrf
-                                        <a href="{{route('barangmasuk.edit', $data->id)}}" class="btn btn-outline-info">Edit</a>
-                                        <a href="{{route('barangmasuk.show' ,$data->id)}}" class="btn btn-outline-warning">Show</a>
+                                        <a href="{{route('barangkeluar.edit', $data->id)}}" class="btn btn-outline-info">Edit</a>
+                                        <a href="{{route('barangkeluar.show' ,$data->id)}}" class="btn btn-outline-warning">Show</a>
                                         <button type="submit" class="btn btn-outline-danger" onclick="return confirm('apakah anda yakin menghapus ini?');">Delete</button>
                                     </form>
                                 </td>

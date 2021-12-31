@@ -39,10 +39,17 @@ class BarangMasukController extends Controller
     {
         $validated = $request->validate(
             ['merekhp' => 'required',
+                'jenishp' => 'required',
+                'tanggal' => 'required',
+                'jumlahmasuk' => 'required',
             ]);
 
         $barangmasuk = new BarangMasuk;
-        $barangmasuk->id_produk = $request->id_produk;
+        $barangmasuk->merekhp = $request->merekhp;
+        $barangmasuk->jenishp = $request->jenishp;
+        $barangmasuk->tanggal = $request->tanggal;
+        $barangmasuk->jumlahmasuk = $request->jumlahmasuk;
+
         $barangmasuk->save();
         return redirect()->route('barangmasuk.index');
 
@@ -54,7 +61,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function show(BarangMasuk $barangMasuk)
+    public function show($id)
     {
         $barangmasuk = BarangMasuk::findOrFail($id);
         return view('barangmasuk.show', compact('barangmasuk'));
@@ -67,7 +74,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function edit(BarangMasuk $barangMasuk)
+    public function edit($id)
     {
         $barangmasuk = BarangMasuk::findOrFail($id);
         return view('barangmasuk.edit', compact('barangmasuk'));
@@ -81,14 +88,14 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BarangMasuk $barangMasuk)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate(
-            ['id_produk' => 'required',
+            ['id' => 'required',
             ]);
 
         $barangmasuk = BarangMasuk::findOrFail($id);
-        $barangmasuk->id_barangmasuk = $request->id_barangmasuk;
+        $barangmasuk->id = $request->id;
         $barangmasuk->save();
         return redirect()->route('barangmasuk.index');
 
@@ -100,7 +107,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BarangMasuk $barangMasuk)
+    public function destroy($id)
     {
         $barangmasuk = BarangMasuk::findOrFail($id);
         $barangmasuk->delete();
