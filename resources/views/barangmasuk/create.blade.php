@@ -23,7 +23,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Merk Hp</label>
-                            <input type="text" name="amount" class="form-control @error('amount') is-invalid @enderror">
+                            <input type="text" name="merekhp" class="form-control @error('amount') is-invalid @enderror">
                             @error('amount')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Jenis Hp</label>
-                            <input type="text" name="amount" class="form-control @error('amount') is-invalid @enderror">
+                            <input type="text" name="jenishp" class="form-control @error('amount') is-invalid @enderror">
                             @error('amount')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Tanggal Masuk</label>
-                            <input type="date" name="amount" class="form-control @error('amount') is-invalid @enderror">
+                            <input type="date" name="tanggal" class="form-control @error('amount') is-invalid @enderror">
                             @error('amount')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <label for="">Jumlah Barang Masuk</label>
-                            <input type="number" name="amount" class="form-control @error('amount') is-invalid @enderror">
+                            <input type="number" name="jumlahmasuk" class="form-control @error('amount') is-invalid @enderror">
                             @error('amount')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

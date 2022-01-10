@@ -23,27 +23,43 @@
                     <form action="{{route('produk.store')}}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="">Masukan Nama Merek Hp</label>
-                            <input type="text" name="merekhp" class="form-control @error('merekhp') is-invalid @enderror">
-
-                            @error('merekhp')
+                            <label for="">Merk Hp</label>
+                            <input type="text" name="merekhp" class="form-control @error('amount') is-invalid @enderror">
+                            @error('amount')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong>{{ $message }}</strong>
                             </span>
-
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Masukan Nama Jenis Hp</label>
-                            <input type="text" name="jenishp" class="form-control @error('jenishp') is-invalid @enderror">
-
-                            @error('jenishp')
+                            <label for="">Jenis Hp</label>
+                            <input type="text" name="jenishp" class="form-control @error('amount') is-invalid @enderror">
+                            @error('amount')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{$message}}</strong>
+                                <strong>{{ $message }}</strong>
                             </span>
-
                             @enderror
                         </div>
+                        {{-- <div class="form-group">
+                            <label for="">Tanggal Masuk</label>
+                            <input type="date" name="tanggal" class="form-control @error('amount') is-invalid @enderror">
+                            @error('amount')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div> --}}
+
+                        <div class="form-group">
+                            <label for="">Stok</label>
+                            <input type="number" name="stok" class="form-control @error('amount') is-invalid @enderror">
+                            @error('amount')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-warning">Reset</button>

@@ -17,29 +17,29 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Data Barang Masuk</div>
+                <div class="card-header">Data Barang Keluar</div>
                 <div class="card-body">
                     <div class="form-group">
                         <label for=""> Merk Hp</label>
-                        <input type="text" name="merekhp" value="{{$barangmasuk->merekhp}}" class="form-control" readonly>
+                        <input type="text" name="merekhp" value="{{$barangkeluar->merekhp}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Jenis Hp</label>
-                        <input type="text" name="jenishp" class="form-control" value="{{$barangmasuk->jenishp}}" readonly>
+                        <input type="text" name="jenishp" class="form-control" value="{{$barangkeluar->jenishp}}" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="">Tanggal Masuk</label>
-                        <input type="text" name="tanggal" class="form-control" value="{{$barangmasuk->tanggal}}" readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for=""> Jumlah Barang Masuk</label>
-                        <input type="number" name="jumlahmasuk" value="{{$barangmasuk->jumlahmasuk}}" class="form-control" readonly>
-
+                        <label for="">Tanggal Keluar</label>
+                        <input type="text" name="tanggal" class="form-control" value="{{$barangkeluar->tanggal}}" readonly>
                     </div>
 
                     <div class="form-group">
-                        <a href="{{url('barangmasuk')}}" class="btn btn-block btn-outline-primary">Kembali</a>
+                        <label for=""> Jumlah Barang Keluar</label>
+                        <input type="number" name="jumlahkeluar" value="{{$barangkeluar->jumlahkeluar}}" class="form-control" readonly>
+
+                    </div>
+
+                    <div class="form-group">
+                        <a href="{{url('admin/barangkeluar')}}" class="btn btn-block btn-outline-primary">Kembali</a>
                     </div>
                 </div>
             </div>

@@ -38,13 +38,16 @@ class BarangKeluarController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(
-            ['merekhp' => 'required',
-            ]);
+        // $validated = $request->validate(
+        //     ['merekhp' => 'required',
+        //     ]);
 
-        $barangmasuk = new BarangKeluar;
-        $barangmasuk->id = $request->id;
-        $barangmasuk->save();
+        $barangkeluar = new BarangKeluar;
+        $barangkeluar->tanggal = $request->tanggal;
+        $barangkeluar->merekhp = $request->merekhp;
+        $barangkeluar->jenishp = $request->jenishp;
+        $barangkeluar->jumlahmasuk = $request->jumlahmasuk;
+
         return redirect()->route('barangkeluar.index');
 
     }

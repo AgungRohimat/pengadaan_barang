@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0">Edit Data Barang Masuk</h1>
+                <h1 class="m-0">Edit Data Barang Keluar</h1>
             </div>
         </div>
     </div>
@@ -19,12 +19,12 @@
             <div class="card">
                 <div class="card-header"></div>
                 <div class="card-body">
-                    <form action="{{route('barangmasuk.update', $barangmasuk->id)}}" method="post">
+                    <form action="{{route('barangkeluar.update', $barangkeluar->id)}}" method="post">
                         @csrf
                         @method ('put')
                         <div class="form-group">
                             <label for="">Merk Hp</label>
-                            <input type="text" name="merekhp" value="{{$barangmasuk->merekhp}}" class="form-control @error('name') is-invalid @enderror">
+                            <input type="text" name="merekhp" value="{{$barangkeluar->merekhp}}" class="form-control @error('name') is-invalid @enderror">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{$message}} </strong>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Jenis Hp</label>
-                            <input type="text" name="jenishp" value="{{$barangmasuk->jenishp}}" class="form-control @error('name') is-invalid @enderror">
+                            <input type="text" name="jenishp" value="{{$barangkeluar->jenishp}}" class="form-control @error('name') is-invalid @enderror">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{$message}} </strong>
@@ -41,8 +41,18 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Jumlah Barang Masuk</label>
-                            <input type="text" name="jumlahmasuk" value="{{$barangmasuk->jumlahmasuk}}" class="form-control @error('name') is-invalid @enderror">
+                            <label for="">Tanggal</label>
+                            <input type="date" name="tanggal" value="{{$barangkeluar->tanggal}}" class="form-control @error('name') is-invalid @enderror">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}} </strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Jumlah Barang Keluar</label>
+                            <input type="text" name="jumlahkeluar" value="{{$barangkeluar->jumlahkeluar}}" class="form-control @error('name') is-invalid @enderror">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{$message}} </strong>

@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0">Data Penulis</h1>
+                <h1 class="m-0">Produk</h1>
             </div>
         </div>
     </div>
@@ -21,15 +21,16 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                {{-- <div class="card-header">
-                    Data Produk
-                    <a href="{{route('produk.create')}}" class="btn btn-outline-primary float-right">Tambah Produk</a>
-                </div> --}}
+                <div class="card-header">
+                    Produk
+                    {{-- <a href="{{route('produk.create')}}" class="btn btn-outline-primary float-right">Tambah Produk</a> --}}
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
                                 <th>Nomor</th>
+
                                 <th>Merk HP</th>
                                 <th>Jenis Hp</th>
                                 <th>Stok</th>
@@ -41,6 +42,7 @@
                             @foreach ($produk as $data)
                             <tr>
                                 <td>{{$no++}}</td>
+
                                 <td>{{$data->merekhp}}</td>
                                 <td>{{$data->jenishp}}</td>
                                 <td>{{$data->stok}}</td>

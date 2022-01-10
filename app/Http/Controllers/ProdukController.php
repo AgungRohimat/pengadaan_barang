@@ -26,7 +26,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('produk.create');
     }
 
     /**
@@ -37,7 +37,15 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $produk = new Produk;
+        $produk->tanggal = $request->tanggal;
+        $produk->merekhp = $request->merekhp;
+        $produk->jenishp = $request->jenishp;
+        $produk->stok = $request->stok;
+
+        $produk->save();
+        return redirect()->route('produk.index');
+
     }
 
     /**
@@ -46,9 +54,10 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show(Produk $produk)
+    public function show(Produk $id)
     {
-        //
+        $produk = Produk::findOrFail($id);
+        return view('produk.show', compact('produk'));
     }
 
     /**
@@ -57,9 +66,10 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produk $produk)
+    public function edit($id)
     {
-        //
+        $produk = Produk::findOrFail($id);
+        return view('produk.edit', compact('produk'));
     }
 
     /**
@@ -69,9 +79,16 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produk $produk)
+    public function update(Request $request, Produk $id)
     {
-        //
+        $produk = Produk::findOrFail($id);
+        $produk->tanggal = $request->tanggal;
+        $produk->merekhp = $request->merekhp;
+        $produk->jenishp = $request->jenishp;
+        $produk->stok = $request->stok;
+        $produk->save();
+        return redirect()->route('produk.index');
+
     }
 
     /**
@@ -82,6 +99,7 @@ class ProdukController extends Controller
      */
     public function destroy(Produk $produk)
     {
-        //
+        return redirect()->route('produk.index');
+
     }
 }

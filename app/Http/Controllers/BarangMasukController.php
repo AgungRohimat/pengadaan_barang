@@ -37,17 +37,17 @@ class BarangMasukController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(
-            ['merekhp' => 'required',
-                'jenishp' => 'required',
-                'tanggal' => 'required',
-                'jumlahmasuk' => 'required',
-            ]);
+        // $validated = $request->validate(
+        //     ['merekhp' => 'required',
+        //         'jenishp' => 'required',
+        //         'tanggal' => 'required',
+        //         'jumlahmasuk' => 'required',
+        //     ]);
 
         $barangmasuk = new BarangMasuk;
+        $barangmasuk->tanggal = $request->tanggal;
         $barangmasuk->merekhp = $request->merekhp;
         $barangmasuk->jenishp = $request->jenishp;
-        $barangmasuk->tanggal = $request->tanggal;
         $barangmasuk->jumlahmasuk = $request->jumlahmasuk;
 
         $barangmasuk->save();
@@ -90,12 +90,21 @@ class BarangMasukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate(
-            ['id' => 'required',
-            ]);
+        // $validated = $request->validate(
+        //     ['id' => 'required',
+        //         'merekhp' => 'required',
+        //         'jenishp' => 'required',
+        //         'tanggal' => 'required',
+        //         'jumlahmasuk' => 'required',
+        //     ]);
 
         $barangmasuk = BarangMasuk::findOrFail($id);
-        $barangmasuk->id = $request->id;
+        $barangmasuk->tanggal = $request->tanggal;
+        $barangmasuk->merekhp = $request->merekhp;
+        $barangmasuk->jenishp = $request->jenishp;
+
+        $barangmasuk->jumlahmasuk = $request->jumlahmasuk;
+
         $barangmasuk->save();
         return redirect()->route('barangmasuk.index');
 

@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0">Data Penulis</h1>
+                <h1 class="m-0">Data Barang Keluar</h1>
             </div>
         </div>
     </div>
@@ -37,7 +37,11 @@
                             @foreach ($barangkeluar as $data)
                             <tr>
                                 <td>{{$no++}}</td>
+                                <td>{{$data->tanggal}}</td>
                                 <td>{{$data->merekhp}}</td>
+                                <td>{{$data->jenishp}}</td>
+                                <td>{{$data->jumlahkeluar}}</td>
+
                                 <td>
                                     <form action="{{route('barangkeluar.destroy' , $data->id)}}" method="POST">
                                         @method('delete')

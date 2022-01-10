@@ -41,6 +41,16 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="">Tanggal</label>
+                            <input type="date" name="tanggal" value="{{$barangmasuk->tanggal}}" class="form-control @error('name') is-invalid @enderror">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}} </strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label for="">Jumlah Barang Masuk</label>
                             <input type="text" name="jumlahmasuk" value="{{$barangmasuk->jumlahmasuk}}" class="form-control @error('name') is-invalid @enderror">
                             @error('name')
