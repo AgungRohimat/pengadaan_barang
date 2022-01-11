@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-header">
                     Produk
-                    {{-- <a href="{{route('produk.create')}}" class="btn btn-outline-primary float-right">Tambah Produk</a> --}}
+                    <a href="{{route('produk.create')}}" class="btn btn-outline-primary float-right">Tambah Produk</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -34,6 +34,7 @@
                                 <th>Merk HP</th>
                                 <th>Jenis Hp</th>
                                 <th>Stok</th>
+                                <th>Aksi</th>
 
                             </tr>
                             @php
@@ -44,8 +45,8 @@
                                 <td>{{$no++}}</td>
 
                                 <td>{{$data->merekhp}}</td>
-                                <td>{{$data->jenishp}}</td>
-                                <td>{{$data->stok}}</td>
+                                 <td>{{$data->jenishp}}</td>
+                                 <td>{{$data->stok}}</td>
 
                                 <td>
                                     <form action="{{route('produk.destroy' , $data->id)}}" method="POST">

@@ -22,21 +22,29 @@
                     <form action="{{route('barangmasuk.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Merk Hp</label>
-                            <input type="text" name="merekhp" class="form-control @error('amount') is-invalid @enderror">
-                            @error('amount')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <label for="">Merek Hp</label>
+                            <select name="id_produk" class="form-control @error('id') is-invalid @enderror" >
+                                @foreach($produk as $data)
+                                    <option value="{{$data->id}}">{{$data->merekhp}}</option>
+                                @endforeach
+                            </select>
+                            @error('id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="">Jenis Hp</label>
-                            <input type="text" name="jenishp" class="form-control @error('amount') is-invalid @enderror">
-                            @error('amount')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <select name="id_produk" class="form-control @error('id') is-invalid @enderror" >
+                                @foreach($produk as $data)
+                                    <option value="{{$data->id}}">{{$data->jenishp}}</option>
+                                @endforeach
+                            </select>
+                            @error('id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                         <div class="form-group">

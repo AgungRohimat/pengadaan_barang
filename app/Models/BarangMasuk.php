@@ -9,14 +9,10 @@ class BarangMasuk extends Model
 {
     use HasFactory;
 
-    //memberikan akses data apa saja yang bisa di lihat
-    protected $visible = ['tanggal', 'merekhp', 'jenishp', 'jumlahmasuk'];
-    //memberikan akses data apa saja yang bisa diisi
-    protected $fillable = ['tanggal', 'merekhp', 'jenishp', 'jumlahmasuk'];
-
-    public function produks()
-    {
-        return $this->hasMany('App\Produk');
+    public function produk() {
+        // data model "authors" bisa memiliki banyak data
+        //dari model "book" memalalui fk "author_id"
+        return $this->belongsTo('App\Models\Produk','id_produk');
     }
 
 }

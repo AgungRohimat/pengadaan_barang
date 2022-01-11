@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BarangKeluar;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class BarangKeluarController extends Controller
@@ -26,7 +27,9 @@ class BarangKeluarController extends Controller
      */
     public function create()
     {
-        return view('barangkeluar.create');
+        $produk = Produk::all();
+        return view('barangkeluar.create', compact('produk'));
+        // return view('barangkeluar.create');
 
     }
 

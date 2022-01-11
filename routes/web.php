@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangKeluarController;
-use App\Http\Controllers\BarangMasukController;
+use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\LaporanKeluarController;
 use App\Http\Controllers\LaporanMasukController;
 use App\Http\Controllers\ProdukController;
@@ -65,7 +65,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::resource('produk', ProdukController::class)->middleware(['role:admin']);
-    Route::resource('barangmasuk', BarangMasukController::class)->middleware(['role:admin']);
+    Route::resource('barangmasuk', BarangmasukController::class)->middleware(['role:admin']);
     Route::resource('barangkeluar', BarangKeluarController::class)->middleware(['role:admin']);
     Route::resource('laporanmasuk', LaporanMasukController::class)->middleware(['role:admin']);
     Route::resource('laporankeluar', LaporanKeluarController::class)->middleware(['role:admin']);

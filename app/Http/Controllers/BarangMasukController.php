@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BarangMasuk;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class BarangMasukController extends Controller
@@ -15,7 +16,7 @@ class BarangMasukController extends Controller
     public function index()
     {
         $barangmasuk = BarangMasuk::all();
-        return view('barangmasuk.index', compact('barangmasuk'));
+        return view('barangmasuk.index',compact('barangmasuk'));
     }
 
     /**
@@ -25,8 +26,8 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        return view('barangmasuk.create');
-
+        $produk = Produk::all();
+        return view('barangmasuk.create',compact('produk'));
     }
 
     /**
@@ -37,22 +38,17 @@ class BarangMasukController extends Controller
      */
     public function store(Request $request)
     {
-        // $validated = $request->validate(
-        //     ['merekhp' => 'required',
-        //         'jenishp' => 'required',
-        //         'tanggal' => 'required',
-        //         'jumlahmasuk' => 'required',
-        //     ]);
-
         $barangmasuk = new BarangMasuk;
-        $barangmasuk->tanggal = $request->tanggal;
-        $barangmasuk->merekhp = $request->merekhp;
-        $barangmasuk->jenishp = $request->jenishp;
+        $barangmasuk->id_produk = $request->id_produk;
         $barangmasuk->jumlahmasuk = $request->jumlahmasuk;
-
+        $barangmasuk->tanggal = $request->tanggal;
         $barangmasuk->save();
-        return redirect()->route('barangmasuk.index');
 
+        $produk = Produk::findOrFail($request->id_produk);
+        $produk->stok += $request->jumlahmasuk;
+        $produk->save();
+
+        return redirect()->route('barangmasuk.index');
     }
 
     /**
@@ -61,11 +57,10 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(BarangMasuk $barangMasuk)
     {
         $barangmasuk = BarangMasuk::findOrFail($id);
         return view('barangmasuk.show', compact('barangmasuk'));
-
     }
 
     /**
@@ -74,11 +69,10 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(BarangMasuk $barangMasuk)
     {
         $barangmasuk = BarangMasuk::findOrFail($id);
         return view('barangmasuk.edit', compact('barangmasuk'));
-
     }
 
     /**
@@ -88,16 +82,8 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, BarangMasuk $barangMasuk)
     {
-        // $validated = $request->validate(
-        //     ['id' => 'required',
-        //         'merekhp' => 'required',
-        //         'jenishp' => 'required',
-        //         'tanggal' => 'required',
-        //         'jumlahmasuk' => 'required',
-        //     ]);
-
         $barangmasuk = BarangMasuk::findOrFail($id);
         $barangmasuk->tanggal = $request->tanggal;
         $barangmasuk->merekhp = $request->merekhp;
@@ -107,7 +93,6 @@ class BarangMasukController extends Controller
 
         $barangmasuk->save();
         return redirect()->route('barangmasuk.index');
-
     }
 
     /**

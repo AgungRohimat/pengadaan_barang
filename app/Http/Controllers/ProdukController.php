@@ -27,6 +27,7 @@ class ProdukController extends Controller
     public function create()
     {
         return view('produk.create');
+
     }
 
     /**
@@ -38,7 +39,7 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $produk = new Produk;
-        $produk->tanggal = $request->tanggal;
+        // $produk->tanggal = $request->tanggal;
         $produk->merekhp = $request->merekhp;
         $produk->jenishp = $request->jenishp;
         $produk->stok = $request->stok;
@@ -97,8 +98,10 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produk $produk)
+    public function destroy($id)
     {
+        $produk = Produk::findOrFail($id);
+        $produk->delete();
         return redirect()->route('produk.index');
 
     }

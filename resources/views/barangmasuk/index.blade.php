@@ -26,11 +26,9 @@
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
-
                                 <th>No</th>
-                                <th>Tanggal</th>
-                                <th>Merk Hp</th>
                                 <th>Jenis Hp</th>
+                                <th>Tanggal</th>
                                 <th>Jumlah Masuk</th>
                                 <th>Aksi</th>
                             </tr>
@@ -40,9 +38,8 @@
                             @foreach ($barangmasuk as $data)
                             <tr>
                                 <td>{{$no++}}</td>
+                                 <td>{{$data->produk->jenishp}}</td>
                                 <td>{{$data->tanggal}}</td>
-                                <td>{{$data->merekhp}}</td>
-                                 <td>{{$data->jenishp}}</td>
                                  <td>{{$data->jumlahmasuk}}</td>
 
 
