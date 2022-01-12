@@ -42,15 +42,25 @@ class BarangKeluarController extends Controller
     public function store(Request $request)
     {
         // $validated = $request->validate(
-        //     ['merekhp' => 'required',
+        //     ['id_produk' => 'required',
+        //         'merekhp' => 'required',
+        //     'jenishp' => 'required',
+        //     'tanggal' => 'required',
+        //     'jumlahkeluar' => 'required',
         //     ]);
 
+
         $barangkeluar = new BarangKeluar;
+        $barangkeluar->id_produk = $request->id_produk;
         $barangkeluar->tanggal = $request->tanggal;
+        $barangkeluar->jumlahkeluar = $request->jumlahkeluar;
         $barangkeluar->merekhp = $request->merekhp;
         $barangkeluar->jenishp = $request->jenishp;
-        $barangkeluar->jumlahmasuk = $request->jumlahmasuk;
+        $barangkeluar->save();
 
+        $produk = Produk::findOrFail($request->id_produk);
+        $produk->stok -= $request->jumlahkeluar;
+        $produk->save();
         return redirect()->route('barangkeluar.index');
 
     }

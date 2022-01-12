@@ -57,10 +57,14 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function show(BarangMasuk $barangMasuk)
+    public function show($id)
     {
+        // $barangmasuk = BarangMasuk::findOrFail($id);
+        // return view('barangmasuk.show', compact('barangmasuk'));
+
         $barangmasuk = BarangMasuk::findOrFail($id);
-        return view('barangmasuk.show', compact('barangmasuk'));
+        $produk = Produk::all();
+        return view('barangmasuk.show', compact('barangmasuk', 'produk'));
     }
 
     /**
@@ -69,10 +73,11 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function edit(BarangMasuk $barangMasuk)
+    public function edit($id)
     {
         $barangmasuk = BarangMasuk::findOrFail($id);
-        return view('barangmasuk.edit', compact('barangmasuk'));
+        $produk = Produk::all();
+        return view('barangmasuk.edit', compact('barangmasuk', 'produk'));
     }
 
     /**
@@ -82,7 +87,7 @@ class BarangMasukController extends Controller
      * @param  \App\Models\BarangMasuk  $barangMasuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BarangMasuk $barangMasuk)
+    public function update(Request $request, $id)
     {
         $barangmasuk = BarangMasuk::findOrFail($id);
         $barangmasuk->tanggal = $request->tanggal;

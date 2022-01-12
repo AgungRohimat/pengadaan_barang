@@ -15,7 +15,14 @@ class ProdukController extends Controller
     public function index()
     {
         $produk = Produk::all();
-        return view('produk.index', compact('produk'));
+
+        //Ubah ke Json
+        // return view('produk.index', compact('produk'));
+        return response()->json([
+            'success' => true,
+            'message' => 'list Data Produk',
+            'data' => $produk
+        ], 200);
 
     }
 
@@ -55,9 +62,10 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show(Produk $id)
+    public function show($id)
     {
         $produk = Produk::findOrFail($id);
+
         return view('produk.show', compact('produk'));
     }
 
@@ -80,10 +88,17 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produk $id)
+    public function update(Request $request,$id)
     {
+        // $produk = Produk::findOrFail($id);
+        // $produk->tanggal = $request->tanggal;
+        // $produk->merekhp = $request->merekhp;
+        // $produk->jenishp = $request->jenishp;
+        // $produk->stok = $request->stok;
+        // $produk->save();
+        // return redirect()->route('produk.index');
+
         $produk = Produk::findOrFail($id);
-        $produk->tanggal = $request->tanggal;
         $produk->merekhp = $request->merekhp;
         $produk->jenishp = $request->jenishp;
         $produk->stok = $request->stok;

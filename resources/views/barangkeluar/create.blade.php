@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0"> Data Barang Keluar</h1>
+                <h1 class="m-0">Tambah Data Barang Masuk</h1>
             </div>
         </div>
     </div>
@@ -21,46 +21,27 @@
                 <div class="card-body">
                     <form action="{{route('barangkeluar.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        {{-- <div class="form-group">
-                            <label for="">Merk Hp</label>
-                            <input type="text" name="merekhp" class="form-control @error('amount') is-invalid @enderror">
-                            @error('amount')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div> --}}
-                         <div class="form-group">
+                        <div class="form-group">
                             <label for="">Merek Hp</label>
-                            <select name="id" class="form-control @error('id') is-invalid @enderror" >
+                            <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
                                 @foreach($produk as $data)
-                                    <option value="{{$data->id}}">{{$data->name}}</option>
+                                    <option value="{{$data->id_produk}}">{{$data->merekhp}}</option>
                                 @endforeach
                             </select>
-                            @error('id')
+                            @error('id_produk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="">Jenis Hp</label>
-                            <input type="text" name="jenishp" class="form-control @error('amount') is-invalid @enderror">
-                            @error('amount')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div> --}}
-
                         <div class="form-group">
                             <label for="">Jenis Hp</label>
-                            <select name="id" class="form-control @error('id') is-invalid @enderror" >
+                            <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
                                 @foreach($produk as $data)
-                                    <option value="{{$data->id}}">{{$data->name}}</option>
+                                    <option value="{{$data->id}}">{{$data->jenishp}}</option>
                                 @endforeach
                             </select>
-                            @error('id')
+                            @error('id_produk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -68,8 +49,8 @@
                         </div>
                         <div class="form-group">
                             <label for="">Tanggal Keluar</label>
-                            <input type="date" name="tanggal" class="form-control @error('amount') is-invalid @enderror">
-                            @error('amount')
+                            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror">
+                            @error('tanggal')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -78,8 +59,8 @@
 
                         <div class="form-group">
                             <label for="">Jumlah Barang Keluar</label>
-                            <input type="number" name="jumlahkeluar" class="form-control @error('amount') is-invalid @enderror">
-                            @error('amount')
+                            <input type="number" name="jumlahkeluar" class="form-control @error('jumlahkeluar') is-invalid @enderror">
+                            @error('jumlahkeluar')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -96,4 +77,3 @@
     </div>
 </div>
 @endsection
-

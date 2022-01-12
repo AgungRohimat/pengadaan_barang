@@ -13,5 +13,11 @@ class Produk extends Model
         //dari model "book" memalalui fk "author_id"
         $this->hasMany('App\Models\BarangMasuk','id_produk');
     }
+    public function barangkeluar () {
+        // data model "authors" bisa memiliki banyak data
+        //dari model "book" memalalui fk "author_id"
+        $this->hasMany('App\Models\BarangKeluar','id_produk');
+    }
+
 
 }
