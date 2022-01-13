@@ -15,14 +15,14 @@ class ProdukController extends Controller
     public function index()
     {
         $produk = Produk::all();
-
+        return view('produk.index', compact('produk'));
         //Ubah ke Json
-        // return view('produk.index', compact('produk'));
-        return response()->json([
-            'success' => true,
-            'message' => 'list Data Produk',
-            'data' => $produk
-        ], 200);
+
+        // return response()->json([
+        //     'success' => true,
+        //     'message' => 'list Data Produk',
+        //     'data' => $produk
+        // ], 200);
 
     }
 

@@ -21,11 +21,11 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for=""> Merk Hp</label>
-                        <input type="text" name="merekhp" value="{{$barangkeluar->merekhp}}" class="form-control" readonly>
+                        <input type="text" name="" value="{{$barangkeluar->produk->merekhp}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Jenis Hp</label>
-                        <input type="text" name="jenishp" class="form-control" value="{{$barangkeluar->jenishp}}" readonly>
+                        <input type="text" name="" class="form-control" value="{{$barangkeluar->produk->jenishp}}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Tanggal Keluar</label>

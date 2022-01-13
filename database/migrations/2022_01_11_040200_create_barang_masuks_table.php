@@ -18,7 +18,6 @@ class CreateBarangMasuksTable extends Migration
             $table->bigInteger('id_produk')->unsigned();
             $table->date('tanggal');
             $table->integer('jumlahmasuk');
-
             $table->foreign('id_produk')->references('id')
             ->on('produks')->onUpdate('cascade')
             ->onDelete('cascade');

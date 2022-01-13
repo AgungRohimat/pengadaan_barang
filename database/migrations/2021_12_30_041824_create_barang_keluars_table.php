@@ -17,8 +17,6 @@ class CreateBarangKeluarsTable extends Migration
             $table->id();
             $table->bigInteger('id_produk')->unsigned();
             $table->date('tanggal');
-            $table->string('merekhp');
-            $table->string('jenishp');
             $table->integer('jumlahkeluar');
             $table->foreign('id_produk')->references('id')
                 ->on('produks')->onUpdate('cascade')

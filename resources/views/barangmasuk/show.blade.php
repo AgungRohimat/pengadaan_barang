@@ -64,6 +64,9 @@
                         <input type="number" name="jumlahmasuk" value="{{$barangmasuk->jumlahmasuk}}" class="form-control" readonly>
 
                     </div>
+                    <div class="form-group">
+                        <a href="{{url('admin/barangmasuk')}}" class="btn btn-block btn-outline-primary">Kembali</a>
+                    </div>
 
 
 

@@ -22,22 +22,59 @@
                     <form action="{{route('barangkeluar.update', $barangkeluar->id)}}" method="post">
                         @csrf
                         @method ('put')
+                        {{-- <div class="form-group">
+                            <label for="">Merek Hp</label>
+                            <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
+                                @foreach($produk as $data)
+                                    <option value="{{$data->merekhp}}"{{$data->id == $barangkeluar->merekhp ? 'selected="selected"' : '' }}>{{$data->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('id_produk')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div> --}}
+
                         <div class="form-group">
-                            <label for="">Merk Hp</label>
-                            <input type="text" name="merekhp" value="{{$barangkeluar->merekhp}}" class="form-control @error('name') is-invalid @enderror">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{$message}} </strong>
-                            </span>
+                            <label for="">Merek Hp</label>
+                            <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
+                                @foreach($produk as $data)
+                                    <option value="{{$data->id}}">{{$data->merekhp}}</option>
+                                @endforeach
+                            </select>
+                            @error('id_produk')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
+
+                       {{-- <div class="form-group">
+                            <label for="">Jenis Hp</label>
+                            <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
+                                @foreach($produk as $data)
+                                    <option value="{{$data->merekhp}}" {{$data->id == $barangkeluar->jenishp ? 'selected="selected"' : '' }}>{{$data->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('id_produk')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div> --}}
+
                         <div class="form-group">
                             <label for="">Jenis Hp</label>
-                            <input type="text" name="jenishp" value="{{$barangkeluar->jenishp}}" class="form-control @error('name') is-invalid @enderror">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{$message}} </strong>
-                            </span>
+                            <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
+                                @foreach($produk as $data)
+                                    <option value="{{$data->id}}">{{$data->jenishp}}</option>
+                                @endforeach
+                            </select>
+                            @error('id_produk')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                         <div class="form-group">

@@ -48,14 +48,13 @@ class BarangKeluarController extends Controller
         //     'tanggal' => 'required',
         //     'jumlahkeluar' => 'required',
         //     ]);
-
+//   $barangkeluar->merekhp = $request->merekhp;
+//         $barangkeluar->jenishp = $request->jenishp;
 
         $barangkeluar = new BarangKeluar;
         $barangkeluar->id_produk = $request->id_produk;
-        $barangkeluar->tanggal = $request->tanggal;
         $barangkeluar->jumlahkeluar = $request->jumlahkeluar;
-        $barangkeluar->merekhp = $request->merekhp;
-        $barangkeluar->jenishp = $request->jenishp;
+        $barangkeluar->tanggal = $request->tanggal;
         $barangkeluar->save();
 
         $produk = Produk::findOrFail($request->id_produk);
@@ -84,10 +83,11 @@ class BarangKeluarController extends Controller
      * @param  \App\Models\BarangKeluar  $barangKeluar
      * @return \Illuminate\Http\Response
      */
-    public function edit(BarangKeluar $barangKeluar)
+    public function edit($id)
     {
         $barangkeluar = BarangKeluar::findOrFail($id);
-        return view('barangkeluar.edit', compact('barangkeluar'));
+        $produk = Produk::all();
+        return view('barangkeluar.edit', compact('barangkeluar', 'produk'));
 
     }
 

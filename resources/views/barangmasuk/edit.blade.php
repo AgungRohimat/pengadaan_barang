@@ -85,16 +85,8 @@
                         @csrf
                         @method('put')
 
-                        <div class="form-group">
-                            <label for="">Tanggal</label>
-                            <input type="date" name="tanggal" value="{{$barangmasuk->tanggal}}" class="form-control @error('tanggal') is-invalid @enderror">
-                             @error('tanggal')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
+
+                        {{-- <div class="form-group">
                             <label for="">Merek Hp</label>
                             <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
                                 @foreach($produk as $data)
@@ -106,10 +98,23 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="">Merek Hp</label>
+                            <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
+                                @foreach($produk as $data)
+                                    <option value="{{$data->id}}">{{$data->merekhp}}</option>
+                                @endforeach
+                            </select>
+                            @error('id_produk')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="">Jenis Hp</label>
                             <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
                                 @foreach($produk as $data)
@@ -121,7 +126,32 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                        </div> --}}
+
+                        <div class="form-group">
+                            <label for="">Jenis Hp</label>
+                            <select name="id_produk" class="form-control @error('id_produk') is-invalid @enderror" >
+                                @foreach($produk as $data)
+                                    <option value="{{$data->id}}">{{$data->jenishp}}</option>
+                                @endforeach
+                            </select>
+                            @error('id_produk')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
+
+                            <div class="form-group">
+                            <label for="">Tanggal</label>
+                            <input type="date" name="tanggal" value="{{$barangmasuk->tanggal}}" class="form-control @error('tanggal') is-invalid @enderror">
+                             @error('tanggal')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
                         <div class="form-group">
                             <label for="">Jumlah Masuk</label>
                             <input type="number" name="jumlahmasuk" value="{{$barangmasuk->jumlahmasuk}}" class="form-control @error('jumlahmasuk') is-invalid @enderror">
