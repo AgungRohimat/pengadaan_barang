@@ -40,4 +40,42 @@ class ApiController extends Controller
             'data' => $produk
         ], 200);
     }
+
+    public function show($id){
+        $produk = Produk::find($id);
+
+        //Ubah ke Json
+   return response()->json([
+        'success' => true,
+        'message' => 'list Data Produk',
+        'data' => $produk
+    ], 200);
+    }
+
+    public function edit($id){
+        //
+    }
+    public function update(Request $request,$id)
+    {
+        // $produk = Produk::findOrFail($id);
+        // $produk->tanggal = $request->tanggal;
+        // $produk->merekhp = $request->merekhp;
+        // $produk->jenishp = $request->jenishp;
+        // $produk->stok = $request->stok;
+        // $produk->save();
+        // return redirect()->route('produk.index');
+
+        $produk = Produk::findOrFail($id);
+        $produk->merekhp = $request->merekhp;
+        $produk->jenishp = $request->jenishp;
+        $produk->stok = $request->stok;
+        $produk->save();
+        return response()->json([
+            'success' => true,
+            'message' => 'list Tambah Data Produk',
+            'data' => $produk
+        ], 200);
+
+    }
+
 }

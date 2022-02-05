@@ -250,16 +250,16 @@ return [
             'url' => 'admin/barangkeluar',
             'icon' => ' fas fa-fw fa-clipboard',
         ],
-        [
-            'text' => 'Laporan Barang Masuk',
-            'url' => 'admin/laporanmasuk',
-            'icon' => ' fas fa-fw fa-book',
-        ],
-        [
-            'text' => 'Laporan Barang Keluar',
-            'url' => 'admin/laporankeluar',
-            'icon' => ' fas fa-fw fa-book',
-        ],
+        // [
+        //     'text' => 'Laporan Barang Masuk',
+        //     'url' => 'admin/laporanmasuk',
+        //     'icon' => ' fas fa-fw fa-book',
+        // ],
+        // [
+        //     'text' => 'Laporan Barang Keluar',
+        //     'url' => 'admin/laporankeluar',
+        //     'icon' => ' fas fa-fw fa-book',
+        // ],
 
     ],
 
