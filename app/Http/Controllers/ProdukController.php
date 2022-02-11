@@ -45,6 +45,12 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        // $validated = $request->validate([
+        //     'merekhp' => 'required',
+        //     'jenishp' => 'required',
+        //     'stok' => 'required|numeric'
+        // ])
+
         $produk = new Produk;
         // $produk->tanggal = $request->tanggal;
         $produk->merekhp = $request->merekhp;
@@ -115,9 +121,20 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
-        $produk = Produk::findOrFail($id);
-        $produk->delete();
-        return redirect()->route('produk.index');
 
+        // if (!Produk::destroy($id)) {
+        //     return redirect()->back();
+        // }
+        // Alert::success('Success', 'Data delected successfully');
+
+        // $produk = Produk::findOrFail($id);
+        // $produk->delete();
+        // return redirect()->route('produk.index');
+
+        if (!Produk::destroy($id)) {
+            return redirect()->back();
+        }
+        Alert::success('Success', 'Data deleted successfully');
+        return redirect()->route('produk.index');
     }
 }

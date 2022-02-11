@@ -117,7 +117,7 @@ class BarangKeluarController extends Controller
      * @param  \App\Models\BarangKeluar  $barangKeluar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BarangKeluar $barangKeluar)
+    public function destroy($id)
     {
         $barangkeluar = BarangKeluar::findOrFail($id);
         $barangkeluar->delete();

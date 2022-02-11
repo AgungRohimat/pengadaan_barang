@@ -52,8 +52,16 @@
 
                         <div class="form-group">
                             <label for="">Stok</label>
-                            <input type="number" name="stok" class="form-control @error('amount') is-invalid @enderror">
-                            @error('amount')
+                            <input type="number" class="form-control" name="stok" min= "1">
+                            <option value = "1">Hanya bisa menggunakan Angka</option>
+                            @if($errors->has('stok'))
+                            <span class="invalid-feedback">{{$errors->first('stok')}}</span>
+
+                            @else
+
+                            @endif
+                            {{-- <input type="number" name="stok" class="form-control @error('stok') is-invalid @enderror"> --}}
+                            @error('stok')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

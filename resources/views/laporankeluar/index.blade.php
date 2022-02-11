@@ -19,7 +19,10 @@
             <div class="card">
                 <div class="card-header">
                     Laporan Barang Keluar
+
                     {{-- <a href="{{route('barangmasuk.create')}}" class="btn btn-outline-primary float-right">Tambah Barang</a> --}}
+<button onclick="window.print()" class="btn btn-primary float-right col-sm-2 ml-3"><span
+                        class="fa fa-print">&nbsp;</span> Print</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

@@ -23,6 +23,8 @@
             <div class="card">
                 <div class="card-header">
                     Produk
+                    <button onclick="window.print()" class="btn btn-primary float-right col-sm-2 ml-3"><span
+                        class="fa fa-print">&nbsp;</span> Print</button>
                     <a href="{{route('produk.create')}}" class="btn btn-outline-primary float-right">Tambah Produk</a>
                 </div>
                 <div class="card-body">
@@ -54,7 +56,8 @@
                                         @csrf
                                         <a href="{{route('produk.edit', $data->id)}}" class="btn btn-outline-info">Edit</a>
                                         <a href="{{route('produk.show' ,$data->id)}}" class="btn btn-outline-warning">Show</a>
-                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('apakah anda yakin menghapus ini?');">Delete</button>
+                                        {{-- <button type="submit" class="btn btn-outline-danger" onclick="return confirm('apakah anda yakin menghapus ini?');">Delete</button> --}}
+                                   <button type="submit" class="btn btn-danger delete-confirm"  onclick="return confirm('apakah anda yakin menghapus ini?');">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -67,4 +70,30 @@
         </div>
     </div>
 </div>
+@endsection
+@section('css')
+<link >
+@endsection
+
+@section('js')
+<script>
+    $(".delete-confirm").click(function (event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        });
+    });
+</script>
 @endsection
