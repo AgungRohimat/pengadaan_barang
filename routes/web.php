@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\BarangmasukController;
-use App\Http\Controllers\LaporanKeluarController;
-use App\Http\Controllers\LaporanMasukController;
+use App\Http\Controllers\CetakLaporanController;
+// use App\Http\Controllers\LaporanKeluarController;
+// use App\Http\Controllers\LaporanMasukController;
 use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
@@ -62,12 +63,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     })->middleware(['role:admin']);;
 // });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::get('laporan', [CetakLaporanController::class, 'laporanKeluar'])->name('getlaporanKeluar');
+Route::post('laporan', [CetakLaporanController::class, 'cetaklaporanKeluar'])->name('laporanKeluar');
     Route::resource('produk', ProdukController::class)->middleware(['role:admin']);
     Route::resource('barangmasuk', BarangmasukController::class)->middleware(['role:admin']);
     Route::resource('barangkeluar', BarangKeluarController::class)->middleware(['role:admin']);
-    Route::resource('laporanmasuk', LaporanMasukController::class)->middleware(['role:admin']);
-    Route::resource('laporankeluar', LaporanKeluarController::class)->middleware(['role:admin']);
+    // Route::resource('laporanmasuk', LaporanMasukController::class)->middleware(['role:admin']);
+    // Route::resource('laporankeluar', LaporanKeluarController::class)->middleware(['role:admin']);
 
 });

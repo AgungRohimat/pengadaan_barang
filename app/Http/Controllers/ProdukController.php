@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,24 @@ class ProdukController extends Controller
         //     'jenishp' => 'required',
         //     'stok' => 'required|numeric'
         // ])
+
+    //     $rules = [
+    //         'name' => 'required|max:255|unique:produk',
+    //         'stok' => 'required|numeric|max:2048'
+    //     ];
+    //     $messsage = [
+    //         'name.required' => 'name harus di isi',
+    //         'name.unique' => 'name sudah digunakan',
+    //         'name.max' => 'name maksimal 255 karakter',
+    //         'namafieldlain.numeric' => 'hanya boleh di isi oleh angka',
+    //         'namafieldlain.required' => 'nama field lain harus di isi',
+    //         'namafieldlain.required' => 'nama field lain maksimal 2mb',
+    //     ];
+    //     $validation = Validator::make($request->all(), $rules, $message);
+    // if ($validation->fails()) {
+    //     Alert::error('Oops', 'Data yang anda input tidak valid, silahkan di ulang')->autoclose(2000);
+    //     return back()->withErrors($validation)->withInput();
+    // }
 
         $produk = new Produk;
         // $produk->tanggal = $request->tanggal;
@@ -103,6 +122,24 @@ class ProdukController extends Controller
         // $produk->stok = $request->stok;
         // $produk->save();
         // return redirect()->route('produk.index');
+
+    //     $rules = [
+    //         'name' => 'required|max:255|unique:produk',
+    //         'stok' => 'required|numeric|max:2048'
+    //     ];
+    //     $messsage = [
+    //         'name.required' => 'name harus di isi',
+    //         'name.unique' => 'name sudah digunakan',
+    //         'name.max' => 'name maksimal 255 karakter',
+    //         'namafieldlain.numeric' => 'hanya boleh di isi oleh angka',
+    //         'namafieldlain.required' => 'nama field lain harus di isi',
+    //         'namafieldlain.required' => 'nama field lain maksimal 2mb',
+    //     ];
+    //     $validation = Validator::make($request->all(), $rules, $message);
+    // if ($validation->fails()) {
+    //     Alert::error('Oops', 'Data yang anda input tidak valid, silahkan di ulang')->autoclose(2000);
+    //     return back()->withErrors($validation)->withInput();
+    // }
 
         $produk = Produk::findOrFail($id);
         $produk->merekhp = $request->merekhp;

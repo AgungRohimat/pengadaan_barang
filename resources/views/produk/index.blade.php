@@ -57,7 +57,7 @@
                                         <a href="{{route('produk.edit', $data->id)}}" class="btn btn-outline-info">Edit</a>
                                         <a href="{{route('produk.show' ,$data->id)}}" class="btn btn-outline-warning">Show</a>
                                         {{-- <button type="submit" class="btn btn-outline-danger" onclick="return confirm('apakah anda yakin menghapus ini?');">Delete</button> --}}
-                                   <button type="submit" class="btn btn-danger delete-confirm"  onclick="return confirm('apakah anda yakin menghapus ini?');">Delete</button>
+                                   <button type="submit" class="btn btn-danger delete-confirm"  >Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -71,11 +71,9 @@
     </div>
 </div>
 @endsection
-@section('css')
-<link >
-@endsection
 
 @section('js')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $(".delete-confirm").click(function (event) {
         var form = $(this).closest("form");

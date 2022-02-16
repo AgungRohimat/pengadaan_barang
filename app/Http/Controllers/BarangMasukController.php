@@ -18,6 +18,16 @@ class BarangMasukController extends Controller
         $barangmasuk = BarangMasuk::all();
         return view('barangmasuk.index',compact('barangmasuk'));
     }
+    public function daily_report(Request $request)
+    {
+        $start_date = Carbon::parse($request->start_date)
+                                ->toDateTimeString();
+
+        $end_date = Carbon::parse($request->end_date)
+                                ->toDateTimeString();
+
+        return User::whereBetween('created_at', [$start_date,$end_date])->get();
+    }
 
     /**
      * Show the form for creating a new resource.

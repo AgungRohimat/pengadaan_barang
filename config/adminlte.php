@@ -251,15 +251,22 @@ return [
             'icon' => ' fas fa-fw fa-clipboard',
         ],
         [
-            'text' => 'Laporan Barang Masuk',
-            'url' => 'admin/laporanmasuk',
-            'icon' => ' fas fa-fw fa-book',
+            'text' => 'Laporan',
+            'url' => 'admin/laporan',
+            'icon' => ' fas fa-fw fa-clipboard',
         ],
-        [
-            'text' => 'Laporan Barang Keluar',
-            'url' => 'admin/laporankeluar',
-            'icon' => ' fas fa-fw fa-book',
-        ],
+
+        // [
+        //     'text' => 'Laporan Barang Masuk',
+        //     'url' => 'admin/laporanmasuk',
+        //     'icon' => ' fas fa-fw fa-book',
+        // ],
+        // [
+        //     'text' => 'Laporan Barang Keluar',
+        //     'url' => 'admin/laporankeluar',
+        //     'icon' => ' fas fa-fw fa-book',
+        // ],
+
 
     ],
 
