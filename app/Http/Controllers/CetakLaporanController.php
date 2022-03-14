@@ -26,7 +26,7 @@ class CetakLaporanController extends Controller
                 return view('laporan.cetakbarangmasuk', compact('laporan'));
             } else if ($request->pilih == 'barangkeluar') {
                 $laporan = BarangKeluar::whereBetween('tanggal',[$start, $end])->get();
-                return view('cetak.print.barangkeluar', compact('laporan'));
+                return view('laporan.cetakbarangkeluar', compact('laporan'));
             }
         }else {
                 return redirect()->back()->with('gagal', 'Tanggal Salah');

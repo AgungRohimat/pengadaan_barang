@@ -27,8 +27,8 @@
 
                     <th>Merek Hp</th>
                     <th>Jenis Hp</th>
-                    <th>Tanggal Masuk</th>
-                    <th>Jumlah Barang Masuk</th>
+                    <th>Tanggal Keluar</th>
+                    <th>Jumlah Barang Keluar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,7 +42,7 @@
                             <td>{{ $data->produk->merekhp }}</td>
                             <td>{{ $data->produk->jenishp }}</td>
                             <td>{{ $data->tanggal }}</td>
-                             <td>{{$data->jumlahmasuk}}</td>
+                             <td>{{$data->jumlahkeluar}}</td>
 
 
 

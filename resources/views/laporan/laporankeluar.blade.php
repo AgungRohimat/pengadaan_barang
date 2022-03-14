@@ -50,8 +50,8 @@
 
                             <select name="pilih" class="form-control">
                                 <option value="">-- Silahkan Pilih --</option>
-                                <option value="barang_masuk">Barang Masuk</option>
-                                <option value="barang_keluar">Barang Keluar</option>
+                                <option value="barangmasuk">Barang Masuk</option>
+                                <option value="barangkeluar">Barang Keluar</option>
 
                             </select>
                             </div>
